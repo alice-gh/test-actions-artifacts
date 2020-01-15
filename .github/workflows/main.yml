@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: create data file
+      run: |
+        mkdir data
+        cd data
+        printf '1\n2\n3\n' > test.dat
+    - uses: actions/upload-artifact@v1
+      with:
+        name: test-data
+        path: ${{ github.workspace }}/data
+      name: Create artifact
