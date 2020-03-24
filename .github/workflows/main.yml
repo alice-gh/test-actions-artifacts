@@ -14,7 +14,8 @@ jobs:
         cd data
         printf '1\n2\n3\n' > test.dat
     - uses: actions/upload-artifact@v1
+      name: Create artifact
       with:
         name: test-data
         path: ${{ github.workspace }}/data
-      name: Create artifact
+
